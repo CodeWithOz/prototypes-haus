@@ -1,103 +1,190 @@
-import Image from "next/image";
+import Link from 'next/link';
+
+// Sample prototype data - replace with your actual prototypes
+const prototypes = [
+  {
+    id: 1,
+    name: 'Prototype Alpha',
+    description: 'First experimental build',
+    url: '#',
+    status: 'In Progress',
+  },
+  {
+    id: 2,
+    name: 'Prototype Beta',
+    description: 'Second iteration testing',
+    url: '#',
+    status: 'Complete',
+  },
+  {
+    id: 3,
+    name: 'Prototype Gamma',
+    description: 'Advanced feature set',
+    url: '#',
+    status: 'Planning',
+  },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className='min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-stone-900 text-zinc-100'>
+      {/* Grid paper background */}
+      <div
+        className='fixed inset-0 opacity-10'
+        style={{
+          backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+        `,
+          backgroundSize: '30px 30px',
+        }}
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* Theme switcher */}
+      <div className='fixed top-6 right-6 z-50 flex gap-3'>
+        <Link
+          href='/second'
+          className='px-4 py-2 bg-zinc-800/50 backdrop-blur-sm border border-zinc-700 rounded-lg hover:bg-zinc-700/50 transition-all duration-300 text-sm font-mono'
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          Lab Theme
+        </Link>
+        <Link
+          href='/third'
+          className='px-4 py-2 bg-zinc-800/50 backdrop-blur-sm border border-zinc-700 rounded-lg hover:bg-zinc-700/50 transition-all duration-300 text-sm font-mono'
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Alt Theme
+        </Link>
+      </div>
+
+      <div className='relative max-w-7xl mx-auto px-6 py-16 sm:px-12 sm:py-24'>
+        {/* Header Section */}
+        <header className='mb-20'>
+          <div className='inline-block mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-orange-500/20 border-2 border-orange-500/50 rounded-none skew-x-[-2deg] shadow-[4px_4px_0px_0px_rgba(249,115,22,0.3)]'>
+            <h1 className='text-4xl sm:text-6xl lg:text-8xl font-black tracking-tight text-orange-500 skew-x-[2deg]'>
+              PROTOTYPES
+            </h1>
+          </div>
+          <div className='ml-2 inline-block px-3 sm:px-4 py-1 sm:py-2 bg-zinc-800 border-l-4 border-orange-500'>
+            <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-zinc-300'>
+              HAUS
+            </h2>
+          </div>
+
+          <div className='mt-12 max-w-2xl'>
+            <div className='relative pl-6 border-l-4 border-orange-500/50'>
+              <p className='text-xl sm:text-2xl text-zinc-300 font-light mb-4'>
+                Welcome to the workshop. This is where my ideas get built,
+                tested, and refined.
+              </p>
+              <p className='text-lg text-zinc-400'>
+                Each prototype represents an experiment in progress—functional
+                builds, proofs-of-concepts, and software solutions crafted with
+                curiosity and grit.
+              </p>
+            </div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className='mt-8 flex items-center gap-4 text-sm font-mono text-orange-500/70'>
+            <div className='h-px w-16 bg-orange-500/50' />
+            <span>STATUS: OPERATIONAL</span>
+            <div className='h-px flex-1 bg-orange-500/50' />
+          </div>
+        </header>
+
+        {/* Prototypes Grid */}
+        <section>
+          <div className='flex items-center gap-4 mb-10'>
+            <div className='w-12 h-12 bg-orange-500/20 border-2 border-orange-500 flex items-center justify-center'>
+              <div className='w-6 h-6 bg-orange-500 animate-pulse' />
+            </div>
+            <h3 className='text-3xl font-black text-zinc-200 tracking-wide'>
+              ACTIVE BUILDS
+            </h3>
+          </div>
+
+          <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+            {prototypes.map((prototype, index) => (
+              <a
+                key={prototype.id}
+                href={prototype.url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='group relative bg-zinc-800/50 backdrop-blur-sm border-2 border-zinc-700 hover:border-orange-500 transition-all duration-300 overflow-hidden'
+                style={{
+                  animation: `slideIn 0.5s ease-out ${index * 0.1}s both`,
+                }}
+              >
+                {/* Corner rivets */}
+                <div className='absolute top-2 left-2 w-3 h-3 rounded-full bg-zinc-600 border border-zinc-500' />
+                <div className='absolute top-2 right-2 w-3 h-3 rounded-full bg-zinc-600 border border-zinc-500' />
+                <div className='absolute bottom-2 left-2 w-3 h-3 rounded-full bg-zinc-600 border border-zinc-500' />
+                <div className='absolute bottom-2 right-2 w-3 h-3 rounded-full bg-zinc-600 border border-zinc-500' />
+
+                {/* Status indicator */}
+                <div className='absolute top-6 right-6'>
+                  <div
+                    className={`px-3 py-1 text-xs font-mono border ${
+                      prototype.status === 'Complete'
+                        ? 'bg-green-500/20 border-green-500 text-green-400'
+                        : prototype.status === 'In Progress'
+                        ? 'bg-orange-500/20 border-orange-500 text-orange-400'
+                        : 'bg-blue-500/20 border-blue-500 text-blue-400'
+                    }`}
+                  >
+                    {prototype.status.toUpperCase()}
+                  </div>
+                </div>
+
+                <div className='p-8 pt-16'>
+                  <div className='mb-4'>
+                    <div className='w-16 h-1 bg-orange-500 mb-4 group-hover:w-24 transition-all duration-300' />
+                    <h4 className='text-2xl font-black text-zinc-100 mb-2 group-hover:text-orange-400 transition-colors'>
+                      {prototype.name}
+                    </h4>
+                  </div>
+
+                  <p className='text-zinc-400 mb-6 leading-relaxed'>
+                    {prototype.description}
+                  </p>
+
+                  <div className='flex items-center gap-2 text-orange-500 font-mono text-sm group-hover:gap-4 transition-all duration-300'>
+                    <span>OPEN BUILD</span>
+                    <span className='text-xl'>→</span>
+                  </div>
+                </div>
+
+                {/* Hover effect overlay */}
+                <div className='absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className='mt-24 pt-12 border-t border-zinc-700'>
+          <div className='flex flex-col sm:flex-row justify-between items-center gap-6'>
+            <div className='text-zinc-500 font-mono text-sm'>
+              <span className='text-orange-500'>{'///'}</span> Built with
+              dedication by{' '}
+              <a
+                href='https://www.linkedin.com/in/uchechukwu-ozoemena/'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-orange-500 hover:text-orange-400 underline transition-colors'
+              >
+                CodeWithOz
+              </a>
+            </div>
+            <div className='flex gap-6 text-zinc-500 hover:text-zinc-400'>
+              <div className='flex items-center gap-2'>
+                <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
+                <span className='text-sm font-mono'>SYSTEM ONLINE</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
