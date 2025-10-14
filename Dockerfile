@@ -21,6 +21,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # ⬇️ add curl so Coolify's healthcheck works
 RUN apk add --no-cache curl
 
+ENV HOST=0.0.0.0
+ENV PORT=3000
 HEALTHCHECK --interval=5s --timeout=5s --retries=10 --start-period=30s \
   CMD curl -fsS http://127.0.0.1:3000/api/health || exit 1
 
