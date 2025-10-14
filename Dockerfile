@@ -18,6 +18,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# ⬇️ add curl so Coolify's healthcheck works
+RUN apk add --no-cache curl
+
 # Copy the "standalone" server and static assets
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/public ./public
