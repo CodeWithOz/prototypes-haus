@@ -56,7 +56,7 @@ jobs:
 
       - name: Trigger Coolify (prod)
         run: |
-          curl -fsSL -X POST "${{ secrets.COOLIFY_PROD_DEPLOY_HOOK_URL }}" --header "Authorization: Bearer ${{ secrets.COOLIFY_DEPLOY_TOKEN_PROD }}"
+          curl -fsSL -X GET "${{ secrets.COOLIFY_PROD_DEPLOY_HOOK_URL }}" --header "Authorization: Bearer ${{ secrets.COOLIFY_DEPLOY_TOKEN_PROD }}"
 
   deploy-dev:
     if: ${{ github.ref == 'refs/heads/develop' }}
@@ -100,4 +100,4 @@ jobs:
 
       - name: Trigger Coolify (dev)
         run: |
-          curl -fsSL -X POST "${{ secrets.COOLIFY_DEV_DEPLOY_HOOK_URL }}" --header "Authorization: Bearer ${{ secrets.COOLIFY_DEPLOY_TOKEN_DEV }}"
+          curl -fsSL -X GET "${{ secrets.COOLIFY_DEV_DEPLOY_HOOK_URL }}" --header "Authorization: Bearer ${{ secrets.COOLIFY_DEPLOY_TOKEN_DEV }}"
