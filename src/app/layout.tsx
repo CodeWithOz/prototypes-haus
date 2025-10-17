@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { APP_NAME } from '@/constants/text';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Prototypes Haus | Workshop Showcase',
+  title: 'Prototypes Haus - Workshop Showcase',
   description: 'A collection of exploratory prototypes and builds.',
+  openGraph: {
+    title: `${APP_NAME} - Workshop Showcase`,
+    description: 'A collection of exploratory prototypes and builds.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
