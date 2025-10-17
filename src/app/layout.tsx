@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prototypes Haus | Experimental Workshop",
-  description: "A collection of experimental prototypes and creative builds",
+  title: 'Prototypes Haus | Workshop Showcase',
+  description: 'A collection of exploratory prototypes and builds.',
 };
 
 export default function RootLayout({

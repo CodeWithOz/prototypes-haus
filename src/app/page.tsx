@@ -1,3 +1,4 @@
+import { APP_NAME } from '@/constants/text';
 import Link from 'next/link';
 
 type PrototypeStatus = 'alpha' | 'beta' | 'stable';
@@ -53,6 +54,8 @@ const prototypes: Prototype[] = [
 ];
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className='min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-stone-900 text-zinc-100'>
       {/* Grid paper background */}
@@ -100,13 +103,13 @@ export default function Home() {
           <div className='mt-12 max-w-2xl'>
             <div className='relative pl-6 border-l-4 border-orange-500/50'>
               <p className='text-xl sm:text-2xl text-zinc-300 font-light mb-4'>
-                Welcome to the workshop. This is where my ideas get built,
-                tested, and refined.
+                Welcome to the workshop. It&apos;s a showcase of my ideas as I
+                build, test, and refine them.
               </p>
               <p className='text-lg text-zinc-400'>
-                Each prototype represents an experiment in progress—functional
-                builds, proofs-of-concepts, and software solutions crafted with
-                curiosity and grit.
+                Each prototype represents an exploration in progress.
+                Proofs-of-concepts, functional builds, and helpful software
+                sourced from my desire to learn and my personal experiences.
               </p>
             </div>
           </div>
@@ -191,8 +194,8 @@ export default function Home() {
         {/* Footer */}
         <footer className='mt-24 pt-12 border-t border-zinc-700'>
           <div className='flex flex-col sm:flex-row justify-between items-center gap-6'>
-            <div className='text-zinc-500 font-mono text-sm'>
-              <span className='text-orange-500'>{'///'}</span> Built with
+            <div className='text-zinc-500 text-center sm:text-left font-mono text-sm'>
+              <span className='text-orange-500'>{'///'}</span> Curated with
               dedication by{' '}
               <a
                 href='https://www.linkedin.com/in/uchechukwu-ozoemena/'
@@ -209,6 +212,9 @@ export default function Home() {
                 <span className='text-sm font-mono'>SYSTEM ONLINE</span>
               </div>
             </div>
+          </div>
+          <div className='mt-12 text-center text-zinc-500 font-mono text-sm'>
+            &copy; {currentYear} {APP_NAME}
           </div>
         </footer>
       </div>
