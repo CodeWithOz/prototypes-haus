@@ -1,27 +1,54 @@
 import Link from 'next/link';
 
-// Sample prototype data - replace with your actual prototypes
-const prototypes = [
+type PrototypeStatus = 'alpha' | 'beta' | 'stable';
+
+type Prototype = {
+  name: string;
+  description: string;
+  url: string;
+  status: PrototypeStatus;
+};
+
+const prototypes: Prototype[] = [
   {
-    id: 1,
-    name: 'Prototype Alpha',
-    description: 'First experimental build',
-    url: '#',
-    status: 'In Progress',
+    name: 'GeldTrail',
+    description: 'Expense tracking app. Scan receipts and view analytics.',
+    url: 'https://geldtrail.prototypes.haus',
+    status: 'alpha',
   },
   {
-    id: 2,
-    name: 'Prototype Beta',
-    description: 'Second iteration testing',
-    url: '#',
-    status: 'Complete',
+    name: 'Artenee',
+    description:
+      'Gratitude journal, with daily gratitude reminders based on journal entries.',
+    url: 'https://artenee.ucheoz.tech',
+    status: 'beta',
   },
   {
-    id: 3,
-    name: 'Prototype Gamma',
-    description: 'Advanced feature set',
-    url: '#',
-    status: 'Planning',
+    name: 'Content Matcher',
+    description:
+      "RAG search over DeepLearning.AI's short courses and Toronto Tech Week 2025 events.",
+    url: 'https://matcher.ucheoz.tech',
+    status: 'stable',
+  },
+  {
+    name: 'PairMaster',
+    description:
+      "A clone of Duolingo's Match Madness game, with the ability to add and practice your own word pairs.",
+    url: 'https://pairmaster.ucheoz.tech',
+    status: 'stable',
+  },
+  {
+    name: 'My Bookshelf',
+    description: "A bookshelf displaying the books I've been reading.",
+    url: 'https://halfbaked.ucheoz.tech',
+    status: 'stable',
+  },
+  {
+    name: 'SPREEDR!',
+    description:
+      'Paste and speed read. Offline-capable and installable on mobile.',
+    url: 'https://spreedr.vercel.app/',
+    status: 'stable',
   },
 ];
 
@@ -106,7 +133,7 @@ export default function Home() {
           <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
             {prototypes.map((prototype, index) => (
               <a
-                key={prototype.id}
+                key={index}
                 href={prototype.url}
                 target='_blank'
                 rel='noopener noreferrer'
@@ -125,9 +152,9 @@ export default function Home() {
                 <div className='absolute top-6 right-6'>
                   <div
                     className={`px-3 py-1 text-xs font-mono border ${
-                      prototype.status === 'Complete'
+                      prototype.status === 'stable'
                         ? 'bg-green-500/20 border-green-500 text-green-400'
-                        : prototype.status === 'In Progress'
+                        : prototype.status === 'beta'
                         ? 'bg-orange-500/20 border-orange-500 text-orange-400'
                         : 'bg-blue-500/20 border-blue-500 text-blue-400'
                     }`}
