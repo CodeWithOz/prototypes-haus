@@ -70,22 +70,6 @@ export default function Home() {
         }}
       />
 
-      {/* Theme switcher */}
-      <div className='fixed top-6 right-6 z-50 flex gap-3'>
-        <Link
-          href='/second'
-          className='px-4 py-2 bg-zinc-800/50 backdrop-blur-sm border border-zinc-700 rounded-lg hover:bg-zinc-700/50 transition-all duration-300 text-sm font-mono'
-        >
-          Lab Theme
-        </Link>
-        <Link
-          href='/third'
-          className='px-4 py-2 bg-zinc-800/50 backdrop-blur-sm border border-zinc-700 rounded-lg hover:bg-zinc-700/50 transition-all duration-300 text-sm font-mono'
-        >
-          Alt Theme
-        </Link>
-      </div>
-
       <div className='relative max-w-7xl mx-auto px-6 py-16 sm:px-12 sm:py-24'>
         {/* Header Section */}
         <header className='mb-20'>
