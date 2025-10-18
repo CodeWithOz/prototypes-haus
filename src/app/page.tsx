@@ -73,7 +73,7 @@ export default function Home() {
       <div className='relative max-w-7xl mx-auto px-6 py-12 sm:px-12 sm:pt-20'>
         {/* Header Section */}
         <header className='mb-20'>
-          <div className='flex gap-3 items-center mb-6'>
+          <div className='flex gap-3 items-center flex-wrap mb-6'>
             <div className='inline-block px-4 sm:px-6 py-2 sm:py-3 bg-orange-500/20 border-2 border-orange-500/50 rounded-none skew-x-[-2deg] shadow-[4px_4px_0px_0px_rgba(249,115,22,0.3)]'>
               <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black tracking-tight text-orange-500 skew-x-[2deg]'>
                 PROTOTYPES
