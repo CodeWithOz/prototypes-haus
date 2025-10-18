@@ -70,18 +70,22 @@ export default function Home() {
         }}
       />
 
-      <div className='relative max-w-7xl mx-auto px-6 py-16 sm:px-12 sm:py-24'>
+      <div className='relative max-w-7xl mx-auto px-6 py-12 sm:px-12 sm:pt-20'>
         {/* Header Section */}
         <header className='mb-20'>
-          <div className='inline-block mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-orange-500/20 border-2 border-orange-500/50 rounded-none skew-x-[-2deg] shadow-[4px_4px_0px_0px_rgba(249,115,22,0.3)]'>
-            <h1 className='text-4xl sm:text-6xl lg:text-8xl font-black tracking-tight text-orange-500 skew-x-[2deg]'>
-              PROTOTYPES
-            </h1>
-          </div>
-          <div className='ml-2 inline-block px-3 sm:px-4 py-1 sm:py-2 bg-zinc-800 border-l-4 border-orange-500'>
-            <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-zinc-300'>
-              HAUS
-            </h2>
+          <div className='flex gap-3 items-center mb-6'>
+            <div className='inline-block px-4 sm:px-6 py-2 sm:py-3 bg-orange-500/20 border-2 border-orange-500/50 rounded-none skew-x-[-2deg] shadow-[4px_4px_0px_0px_rgba(249,115,22,0.3)]'>
+              <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black tracking-tight text-orange-500 skew-x-[2deg]'>
+                PROTOTYPES
+              </h1>
+            </div>
+            <div>
+              <div className='inline-block px-3 sm:px-4 py-1 sm:py-2 bg-zinc-800 border-l-4 border-orange-500'>
+                <h2 className='text-md sm:text-xl md:text-2xl lg:text-4xl font-bold text-zinc-300'>
+                  HAUS
+                </h2>
+              </div>
+            </div>
           </div>
 
           <div className='mt-12 max-w-2xl'>
