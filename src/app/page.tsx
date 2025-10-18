@@ -167,7 +167,7 @@ export default function Home() {
                   </p>
 
                   <div className='flex items-center gap-2 text-orange-500 font-mono text-sm group-hover:gap-4 transition-all duration-300'>
-                    <span>OPEN BUILD</span>
+                    <span>EXPLORE BUILD</span>
                     <span className='text-xl'>→</span>
                   </div>
                 </div>
