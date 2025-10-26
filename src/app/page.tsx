@@ -1,5 +1,4 @@
 import { APP_NAME } from '@/constants/text';
-import Link from 'next/link';
 
 type PrototypeStatus = 'alpha' | 'beta' | 'stable';
 
@@ -69,6 +68,358 @@ export default function Home() {
           backgroundSize: '30px 30px',
         }}
       />
+
+      {/* Workshop background icons */}
+      <div className='fixed inset-0 overflow-hidden pointer-events-none'>
+        {/* Gear 1 - Large rotating */}
+        <div
+          className='absolute opacity-[0.07]'
+          style={{
+            left: '10%',
+            top: '15%',
+            animation: 'rotate-slow 20s linear infinite',
+          }}
+        >
+          <svg
+            width='80'
+            height='80'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-orange-500'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+            />
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+            />
+          </svg>
+        </div>
+
+        {/* Gear 2 - Medium rotating reverse */}
+        <div
+          className='absolute opacity-[0.08]'
+          style={{
+            left: '85%',
+            top: '60%',
+            animation: 'rotate-slow-reverse 18s linear infinite',
+            animationDelay: '5s',
+          }}
+        >
+          <svg
+            width='65'
+            height='65'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-orange-500'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+            />
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+            />
+          </svg>
+        </div>
+
+        {/* Robot - Floating */}
+        <div
+          className='absolute opacity-[0.06]'
+          style={{
+            left: '5%',
+            top: '45%',
+            animation: 'float 14s ease-in-out infinite',
+            animationDelay: '3s',
+          }}
+        >
+          <svg
+            width='70'
+            height='70'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-orange-500'
+          >
+            <rect x='4' y='8' width='16' height='12' rx='2' strokeWidth={1.5} />
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M2 14h2m18 0h2M12 2v4m-3 6h.01M15 12h.01M9 16h6'
+            />
+          </svg>
+        </div>
+
+        {/* Computer chip - Floating */}
+        <div
+          className='absolute opacity-[0.07]'
+          style={{
+            left: '90%',
+            top: '30%',
+            animation: 'float 11s ease-in-out infinite',
+            animationDelay: '4s',
+          }}
+        >
+          <svg
+            width='60'
+            height='60'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <rect x='5' y='5' width='14' height='14' rx='2' strokeWidth={1.5} />
+            <rect x='9' y='9' width='6' height='6' strokeWidth={1.5} />
+            <path
+              strokeLinecap='round'
+              strokeWidth={1.5}
+              d='M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3'
+            />
+          </svg>
+        </div>
+
+        {/* Nut/Bolt - Rotating slow */}
+        <div
+          className='absolute opacity-[0.05]'
+          style={{
+            left: '65%',
+            top: '75%',
+            animation: 'rotate-slow 25s linear infinite',
+            animationDelay: '2s',
+          }}
+        >
+          <svg
+            width='45'
+            height='45'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M12 2L20.66 7L20.66 17L12 22L3.34 17L3.34 7L12 2Z'
+            />
+            <circle cx='12' cy='12' r='3' strokeWidth={1.5} />
+          </svg>
+        </div>
+
+        {/* Computer chip 2 - Floating */}
+        <div
+          className='absolute opacity-[0.05]'
+          style={{
+            left: '15%',
+            top: '92%',
+            animation: 'float 15s ease-in-out infinite',
+            animationDelay: '8s',
+          }}
+        >
+          <svg
+            width='50'
+            height='50'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <rect x='5' y='5' width='14' height='14' rx='2' strokeWidth={1.5} />
+            <rect x='9' y='9' width='6' height='6' strokeWidth={1.5} />
+            <path
+              strokeLinecap='round'
+              strokeWidth={1.5}
+              d='M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3'
+            />
+          </svg>
+        </div>
+
+        {/* Robot 2 - Floating */}
+        <div
+          className='absolute opacity-[0.05]'
+          style={{
+            left: '92%',
+            top: '12%',
+            animation: 'float 13s ease-in-out infinite',
+            animationDelay: '1s',
+          }}
+        >
+          <svg
+            width='55'
+            height='55'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <rect x='4' y='8' width='16' height='12' rx='2' strokeWidth={1.5} />
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M2 14h2m18 0h2M12 2v4m-3 6h.01M15 12h.01M9 16h6'
+            />
+          </svg>
+        </div>
+
+        {/* Nut/Bolt 2 - Rotating slow reverse */}
+        <div
+          className='absolute opacity-[0.06]'
+          style={{
+            left: '70%',
+            top: '5%',
+            animation: 'rotate-slow-reverse 23s linear infinite',
+            animationDelay: '4s',
+          }}
+        >
+          <svg
+            width='48'
+            height='48'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M12 2L20.66 7L20.66 17L12 22L3.34 17L3.34 7L12 2Z'
+            />
+            <circle cx='12' cy='12' r='3' strokeWidth={1.5} />
+          </svg>
+        </div>
+
+        {/* Computer chip 3 - Floating */}
+        <div
+          className='absolute opacity-[0.07]'
+          style={{
+            left: '40%',
+            top: '40%',
+            animation: 'float 14s ease-in-out infinite',
+            animationDelay: '7s',
+          }}
+        >
+          <svg
+            width='52'
+            height='52'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-orange-500'
+          >
+            <rect x='5' y='5' width='14' height='14' rx='2' strokeWidth={1.5} />
+            <rect x='9' y='9' width='6' height='6' strokeWidth={1.5} />
+            <path
+              strokeLinecap='round'
+              strokeWidth={1.5}
+              d='M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3'
+            />
+          </svg>
+        </div>
+
+        {/* Spanner 1 - Floating */}
+        <div
+          className='absolute opacity-[0.05]'
+          style={{
+            left: '50%',
+            top: '90%',
+            animation: 'float 10s ease-in-out infinite',
+            animationDelay: '2s',
+          }}
+        >
+          <svg
+            width='60'
+            height='60'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437'
+            />
+          </svg>
+        </div>
+
+        {/* Gear 3 - Large rotating reverse */}
+        <div
+          className='absolute opacity-[0.06]'
+          style={{
+            left: '3%',
+            top: '80%',
+            animation: 'rotate-slow-reverse 21s linear infinite',
+            animationDelay: '6s',
+          }}
+        >
+          <svg
+            width='75'
+            height='75'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-orange-500'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+            />
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+            />
+          </svg>
+        </div>
+
+        {/* Robot 3 - Floating */}
+        <div
+          className='absolute opacity-[0.07]'
+          style={{
+            left: '60%',
+            top: '25%',
+            animation: 'float 12s ease-in-out infinite',
+            animationDelay: '10s',
+          }}
+        >
+          <svg
+            width='65'
+            height='65'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            className='text-zinc-400'
+          >
+            <rect x='4' y='8' width='16' height='12' rx='2' strokeWidth={1.5} />
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={1.5}
+              d='M2 14h2m18 0h2M12 2v4m-3 6h.01M15 12h.01M9 16h6'
+            />
+          </svg>
+        </div>
+      </div>
 
       <div className='relative max-w-7xl mx-auto px-6 py-12 sm:px-12 sm:pt-20'>
         {/* Header Section */}
