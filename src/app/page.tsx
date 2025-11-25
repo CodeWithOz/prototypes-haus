@@ -11,6 +11,13 @@ type Prototype = {
 
 const prototypes: Prototype[] = [
   {
+    name: 'Listen Better',
+    description:
+      'Learn from French audio transformed into educational content with AI-powered transcription, translation, and explanations',
+    url: 'https://listenbetter.prototypes.haus',
+    status: 'alpha',
+  },
+  {
     name: 'GeldTrail',
     description: 'Expense tracking app. Scan receipts and view analytics.',
     url: 'https://geldtrail.prototypes.haus',
