@@ -13,9 +13,9 @@ const prototypes: Prototype[] = [
   {
     name: 'Listen Better',
     description:
-      'Learn from French audio transformed into educational content with AI-powered transcription, translation, and explanations',
+      'Podcast-style audio feed where two AI-generated hosts translate and explain French audio clips.',
     url: 'https://listenbetter.prototypes.haus',
-    status: 'alpha',
+    status: 'beta',
   },
   {
     name: 'GeldTrail',
