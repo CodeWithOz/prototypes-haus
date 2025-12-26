@@ -13,7 +13,7 @@ const prototypes: Prototype[] = [
   {
     name: 'Listen Better',
     description:
-      'Podcast-style audio feed where two AI-generated hosts translate and explain French audio clips.',
+      'Podcast-style audio feed in which two AI-generated hosts translate and explain French audio clips.',
     url: 'https://listenbetter.prototypes.haus',
     status: 'beta',
   },
