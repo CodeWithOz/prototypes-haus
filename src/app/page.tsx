@@ -22,7 +22,7 @@ const prototypes: Prototype[] = [
     description:
       'Podcast-style audio feed in which two AI-generated hosts translate and explain French audio clips.',
     url: 'https://listenbetter.prototypes.haus',
-    status: 'beta',
+    status: 'stable',
   },
   {
     name: 'GeldTrail',
