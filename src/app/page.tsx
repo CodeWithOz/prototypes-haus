@@ -11,6 +11,13 @@ type Prototype = {
 
 const prototypes: Prototype[] = [
   {
+    name: 'Fluide',
+    description:
+      'Speak French more fluidly by practicing phrases for expressing your wants, needs, opinions, and more.',
+    url: 'https://fluide.prototypes.haus',
+    status: 'alpha',
+  },
+  {
     name: 'Parle',
     description:
       'French speaking practice app. Speak to an AI conversation partner, in free-form discussions or role-play scenarios.',
