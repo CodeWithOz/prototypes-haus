@@ -40,7 +40,7 @@ const prototypes: (Prototype | AbandonedPrototype)[] = [
     name: 'Artenee',
     description:
       'Gratitude journal, with daily gratitude reminders based on journal entries.',
-    url: 'https://artenee.ucheoz.tech',
+    url: 'https://artenee.prototypes.haus',
     status: 'beta',
   },
   {
