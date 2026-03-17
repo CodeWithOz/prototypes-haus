@@ -17,11 +17,11 @@ function getActiveBuildsSection() {
 
 /**
  * Returns the element that acts as the Graveyard section container.
- * Located by the separator label text specified in the requirements.
+ * Located by the "GRAVEYARD" heading.
  */
 function getGraveyardSection() {
-  const label = screen.getByText(/SECTION 02: THE GRAVEYARD/i);
-  return label.closest('section') as HTMLElement;
+  const heading = screen.getByRole('heading', { name: /^graveyard$/i });
+  return heading.closest('section') as HTMLElement;
 }
 
 // ---------------------------------------------------------------------------
@@ -124,33 +124,24 @@ describe('Home page — Active Builds section', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Tests — Graveyard section heading and subtitle
+// Tests — Graveyard section heading
 // ---------------------------------------------------------------------------
 
-describe('Home page — Graveyard section heading and subtitle', () => {
-  it('renders the graveyard section separator label "[ SECTION 02: THE GRAVEYARD ]"', () => {
+describe('Home page — Graveyard section heading', () => {
+  it('renders the "GRAVEYARD" heading', () => {
     render(<Home />);
     expect(
-      screen.getByText(/SECTION 02: THE GRAVEYARD/i),
-    ).toBeInTheDocument();
-  });
-
-  it("renders the subtitle \"Lessons learned in the pursuit of 'Done'.\"", () => {
-    render(<Home />);
-    // The apostrophe may be rendered as a curly quote or straight quote
-    // depending on how the implementer chooses to encode it.
-    expect(
-      screen.getByText(/lessons learned in the pursuit of/i),
+      screen.getByRole('heading', { name: /^graveyard$/i }),
     ).toBeInTheDocument();
   });
 
   it('renders the graveyard section after the active builds section in document order', () => {
     render(<Home />);
     const activeHeading = screen.getByRole('heading', { name: /active builds/i });
-    const graveyardLabel = screen.getByText(/SECTION 02: THE GRAVEYARD/i);
+    const graveyardHeading = screen.getByRole('heading', { name: /^graveyard$/i });
 
     // compareDocumentPosition bit 4 means "the argument follows the reference".
-    const position = activeHeading.compareDocumentPosition(graveyardLabel);
+    const position = activeHeading.compareDocumentPosition(graveyardHeading);
     expect(position & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 });

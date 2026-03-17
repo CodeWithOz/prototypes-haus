@@ -586,20 +586,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 02: The Graveyard */}
+        {/* The Graveyard */}
         <section className='mt-24'>
-          {/* Horizontal rule separator with label */}
-          <div className='flex items-center gap-4 mb-6'>
-            <div className='h-px flex-1 bg-zinc-700' />
-            <h3 className='text-xs font-mono text-zinc-500 whitespace-nowrap'>
-              [ SECTION 02: THE GRAVEYARD ]
+          <div className='flex items-center gap-4 mb-10'>
+            <div className='w-12 h-12 bg-zinc-700/40 border-2 border-zinc-600 flex items-center justify-center'>
+              <div className='w-6 h-6 bg-zinc-600' />
+            </div>
+            <h3 className='text-3xl font-black text-zinc-500 tracking-wide'>
+              GRAVEYARD
             </h3>
-            <div className='h-px flex-1 bg-zinc-700' />
           </div>
-
-          <p className='text-zinc-500 text-sm font-mono mb-10'>
-            Lessons learned in the pursuit of &apos;Done&apos;.
-          </p>
 
           <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
             {abandonedPrototypes.map((prototype, index) => (
@@ -616,7 +612,7 @@ export default function Home() {
                 {/* Status label */}
                 <div className='absolute top-4 right-4'>
                   <span
-                    className='text-xs text-zinc-500 italic font-instrument-serif'
+                    className='text-xs text-zinc-500 italic font-mono'
                   >
                     Decommissioned {prototype.decommissionedYear}
                   </span>
