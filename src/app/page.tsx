@@ -595,6 +595,12 @@ export default function Home() {
                   animation: `slideInGraveyard 0.5s ease-out ${index * 0.1}s both`,
                 }}
               >
+                {/* Corner rivets */}
+                <div className='absolute top-2 left-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+                <div className='absolute top-2 right-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+                <div className='absolute bottom-2 left-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+                <div className='absolute bottom-2 right-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+
                 {/* Status label */}
                 <div className='absolute top-4 right-4'>
                   <span

@@ -32,7 +32,6 @@ const ACTIVE_PROTOTYPE_NAMES = [
   'Fluide',
   'Parle',
   'Listen Better',
-  'GeldTrail',
   'Artenee',
   'Content Matcher',
   'PairMaster',
@@ -42,19 +41,14 @@ const ACTIVE_PROTOTYPE_NAMES = [
 
 const ABANDONED_PROTOTYPES = [
   {
-    name: 'TubeMap',
-    epitaph: 'Scope creep turned a weekend project into a six-month odyssey.',
-    decommissionedYear: 2023,
+    name: 'GeldTrail',
+    epitaph: 'Bad performance; picked wrong tech stack.',
+    decommissionedYear: 2026,
   },
   {
-    name: 'ReceiptSnap',
-    epitaph: 'API costs exceeded the value prop.',
-    decommissionedYear: 2024,
-  },
-  {
-    name: 'MoodRing',
-    epitaph: "Turns out nobody wants to journal their feelings to a chatbot.",
-    decommissionedYear: 2023,
+    name: 'Compass',
+    epitaph: 'Lack of clarity about what I wanted to build and what I wanted to use.',
+    decommissionedYear: 2026,
   },
 ] as const;
 
@@ -203,20 +197,18 @@ describe('Home page — Abandoned project cards', () => {
     expect(within(graveyardSection).queryAllByText('STABLE')).toHaveLength(0);
   });
 
-  it('renders an EXPLORE BUILD link on every abandoned card', () => {
+  it('renders a "VIEW CARCASS" link on every abandoned card', () => {
     render(<Home />);
     const graveyardSection = getGraveyardSection();
-    const links = within(graveyardSection).getAllByText(/explore build/i);
+    const links = within(graveyardSection).getAllByText(/view carcass/i);
     expect(links.length).toBeGreaterThanOrEqual(ABANDONED_PROTOTYPES.length);
   });
 
-  it('EXPLORE BUILD links on abandoned cards are styled with muted zinc-500 colour, not orange', () => {
+  it('"VIEW CARCASS" links on abandoned cards are styled with muted zinc-500 colour, not orange', () => {
     render(<Home />);
     const graveyardSection = getGraveyardSection();
-    const exploreLinks = within(graveyardSection).getAllByText(/explore build/i);
-    exploreLinks.forEach((linkText) => {
-      // The spec requires zinc-500 styling (muted) — orange-500 must NOT appear
-      // on the link text element or its immediate parent wrapper.
+    const ctaLinks = within(graveyardSection).getAllByText(/view carcass/i);
+    ctaLinks.forEach((linkText) => {
       const wrapper = linkText.closest('div') ?? linkText.parentElement;
       const classes = wrapper?.className ?? '';
       expect(classes).not.toMatch(/text-orange-500/);
