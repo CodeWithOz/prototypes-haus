@@ -1,6 +1,6 @@
 import { APP_NAME } from '@/constants/text';
 
-type PrototypeStatus = 'alpha' | 'beta' | 'stable';
+type PrototypeStatus = 'alpha' | 'beta' | 'stable' | 'abandoned';
 
 type Prototype = {
   name: string;
@@ -9,7 +9,12 @@ type Prototype = {
   status: PrototypeStatus;
 };
 
-const prototypes: Prototype[] = [
+type AbandonedPrototype = Prototype & {
+  epitaph: string;
+  decommissionedYear: number;
+};
+
+const prototypes: (Prototype | AbandonedPrototype)[] = [
   {
     name: 'Fluide',
     description:
@@ -71,10 +76,40 @@ const prototypes: Prototype[] = [
     url: 'https://spreedr.vercel.app/',
     status: 'stable',
   },
+  {
+    name: 'TubeMap',
+    description: '',
+    url: 'https://tubemap.prototypes.haus',
+    status: 'abandoned',
+    epitaph: 'Scope creep turned a weekend project into a six-month odyssey.',
+    decommissionedYear: 2023,
+  },
+  {
+    name: 'ReceiptSnap',
+    description: '',
+    url: 'https://receiptsnap.prototypes.haus',
+    status: 'abandoned',
+    epitaph: 'API costs exceeded the value prop.',
+    decommissionedYear: 2024,
+  },
+  {
+    name: 'MoodRing',
+    description: '',
+    url: 'https://moodring.prototypes.haus',
+    status: 'abandoned',
+    epitaph: "Turns out nobody wants to journal their feelings to a chatbot.",
+    decommissionedYear: 2023,
+  },
 ];
+
+function isAbandoned(p: Prototype | AbandonedPrototype): p is AbandonedPrototype {
+  return p.status === 'abandoned';
+}
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
+  const activePrototypes = prototypes.filter((p) => !isAbandoned(p));
+  const abandonedPrototypes = prototypes.filter(isAbandoned);
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-stone-900 text-zinc-100'>
@@ -494,7 +529,7 @@ export default function Home() {
           </div>
 
           <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-            {prototypes.map((prototype, index) => (
+            {activePrototypes.map((prototype, index) => (
               <a
                 key={index}
                 href={prototype.url}
@@ -546,6 +581,65 @@ export default function Home() {
 
                 {/* Hover effect overlay */}
                 <div className='absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 02: The Graveyard */}
+        <section className='mt-24'>
+          {/* Horizontal rule separator with label */}
+          <div className='flex items-center gap-4 mb-6'>
+            <div className='h-px flex-1 bg-zinc-700' />
+            <span className='text-xs font-mono text-zinc-500 whitespace-nowrap'>
+              [ SECTION 02: THE GRAVEYARD ]
+            </span>
+            <div className='h-px flex-1 bg-zinc-700' />
+          </div>
+
+          <p className='text-zinc-500 text-sm font-mono mb-10'>
+            Lessons learned in the pursuit of &apos;Done&apos;.
+          </p>
+
+          <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            {abandonedPrototypes.map((prototype, index) => (
+              <a
+                key={index}
+                href={prototype.url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='group relative bg-zinc-950/50 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 overflow-hidden grayscale hover:grayscale-0'
+                style={{
+                  animation: `slideInGraveyard 0.5s ease-out ${index * 0.1}s both`,
+                }}
+              >
+                {/* Status label */}
+                <div className='absolute top-4 right-4'>
+                  <span
+                    className='text-xs text-zinc-500 italic'
+                    style={{ fontFamily: 'var(--font-instrument-serif)' }}
+                  >
+                    Decommissioned {prototype.decommissionedYear}
+                  </span>
+                </div>
+
+                <div className='p-6 pt-12'>
+                  <div className='mb-3'>
+                    <div className='w-10 h-px bg-zinc-600 mb-3' />
+                    <h4 className='text-lg font-black text-zinc-400 mb-2'>
+                      {prototype.name}
+                    </h4>
+                  </div>
+
+                  <p className='text-zinc-600 mb-5 leading-relaxed text-sm'>
+                    {prototype.epitaph}
+                  </p>
+
+                  <div className='flex items-center gap-2 text-zinc-500 group-hover:text-white font-mono text-xs transition-colors duration-300'>
+                    <span>EXPLORE BUILD</span>
+                    <span>→</span>
+                  </div>
+                </div>
               </a>
             ))}
           </div>

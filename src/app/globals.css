@@ -104,3 +104,14 @@ body {
     transform: rotate(0deg);
   }
 }
+
+@keyframes slideInGraveyard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+}
