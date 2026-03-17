@@ -602,7 +602,7 @@ export default function Home() {
                 <div className='absolute bottom-2 right-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
 
                 {/* Status label */}
-                <div className='absolute top-4 right-4'>
+                <div className='absolute top-6 right-6'>
                   <span
                     className='text-xs text-zinc-500 italic font-mono'
                   >
