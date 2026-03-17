@@ -591,9 +591,9 @@ export default function Home() {
           {/* Horizontal rule separator with label */}
           <div className='flex items-center gap-4 mb-6'>
             <div className='h-px flex-1 bg-zinc-700' />
-            <span className='text-xs font-mono text-zinc-500 whitespace-nowrap'>
+            <h3 className='text-xs font-mono text-zinc-500 whitespace-nowrap'>
               [ SECTION 02: THE GRAVEYARD ]
-            </span>
+            </h3>
             <div className='h-px flex-1 bg-zinc-700' />
           </div>
 
@@ -616,8 +616,7 @@ export default function Home() {
                 {/* Status label */}
                 <div className='absolute top-4 right-4'>
                   <span
-                    className='text-xs text-zinc-500 italic'
-                    style={{ fontFamily: 'var(--font-instrument-serif)' }}
+                    className='text-xs text-zinc-500 italic font-instrument-serif'
                   >
                     Decommissioned {prototype.decommissionedYear}
                   </span>
