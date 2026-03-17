@@ -108,7 +108,7 @@ function isAbandoned(p: Prototype | AbandonedPrototype): p is AbandonedPrototype
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
-  const activePrototypes = prototypes.filter((p) => !isAbandoned(p));
+  const activePrototypes = prototypes.filter((p): p is Prototype => !isAbandoned(p));
   const abandonedPrototypes = prototypes.filter(isAbandoned);
 
   return (
