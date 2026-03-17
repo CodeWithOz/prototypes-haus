@@ -603,11 +603,9 @@ export default function Home() {
 
                 {/* Status label */}
                 <div className='absolute top-6 right-6'>
-                  <span
-                    className='text-xs text-zinc-500 italic font-mono'
-                  >
+                  <div className='px-3 py-1 text-xs font-mono italic border border-zinc-700 bg-zinc-900/50 text-zinc-500'>
                     Decommissioned {prototype.decommissionedYear}
-                  </span>
+                  </div>
                 </div>
 
                 <div className='p-6 pt-12'>
