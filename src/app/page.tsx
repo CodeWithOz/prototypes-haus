@@ -1,6 +1,6 @@
 import { APP_NAME } from '@/constants/text';
 
-type PrototypeStatus = 'alpha' | 'beta' | 'stable';
+type PrototypeStatus = 'alpha' | 'beta' | 'stable' | 'abandoned';
 
 type Prototype = {
   name: string;
@@ -9,7 +9,12 @@ type Prototype = {
   status: PrototypeStatus;
 };
 
-const prototypes: Prototype[] = [
+type AbandonedPrototype = Prototype & {
+  epitaph: string;
+  decommissionedYear: number;
+};
+
+const prototypes: (Prototype | AbandonedPrototype)[] = [
   {
     name: 'Fluide',
     description:
@@ -30,12 +35,6 @@ const prototypes: Prototype[] = [
       'Podcast-style audio feed in which two AI-generated hosts translate and explain French audio clips.',
     url: 'https://listenbetter.prototypes.haus',
     status: 'stable',
-  },
-  {
-    name: 'GeldTrail',
-    description: 'Expense tracking app. Scan receipts and view analytics.',
-    url: 'https://geldtrail.prototypes.haus',
-    status: 'alpha',
   },
   {
     name: 'Artenee',
@@ -71,10 +70,32 @@ const prototypes: Prototype[] = [
     url: 'https://spreedr.vercel.app/',
     status: 'stable',
   },
+  {
+    name: 'GeldTrail',
+    description: 'Expense tracking app. Scan receipts and view analytics.',
+    url: 'https://geldtrail.prototypes.haus',
+    status: 'abandoned',
+    epitaph: 'Bad performance; picked wrong tech stack.',
+    decommissionedYear: 2026,
+  },
+  {
+    name: 'Compass',
+    description: 'Momentum tracker for personal and professional goals.',
+    url: 'https://github.com/CodeWithOz/compass',
+    status: 'abandoned',
+    epitaph: 'Lack of clarity about what I wanted to build and what I wanted to use.',
+    decommissionedYear: 2026,
+  },
 ];
+
+function isAbandoned(p: Prototype | AbandonedPrototype): p is AbandonedPrototype {
+  return p.status === 'abandoned';
+}
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
+  const activePrototypes = prototypes.filter((p): p is Prototype => !isAbandoned(p));
+  const abandonedPrototypes = prototypes.filter(isAbandoned);
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-stone-900 text-zinc-100'>
@@ -494,7 +515,7 @@ export default function Home() {
           </div>
 
           <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-            {prototypes.map((prototype, index) => (
+            {activePrototypes.map((prototype, index) => (
               <a
                 key={index}
                 href={prototype.url}
@@ -546,6 +567,64 @@ export default function Home() {
 
                 {/* Hover effect overlay */}
                 <div className='absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* The Graveyard */}
+        <section className='mt-24'>
+          <div className='flex items-center gap-4 mb-10'>
+            <div className='w-12 h-12 bg-zinc-700/40 border-2 border-zinc-600 flex items-center justify-center'>
+              <div className='w-6 h-6 bg-zinc-600' />
+            </div>
+            <h3 className='text-3xl font-black text-zinc-500 tracking-wide'>
+              GRAVEYARD
+            </h3>
+          </div>
+
+          <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            {abandonedPrototypes.map((prototype, index) => (
+              <a
+                key={index}
+                href={prototype.url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='group relative bg-zinc-950/50 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 overflow-hidden grayscale hover:grayscale-0'
+                style={{
+                  animation: `slideInGraveyard 0.5s ease-out ${index * 0.1}s both`,
+                }}
+              >
+                {/* Corner rivets */}
+                <div className='absolute top-2 left-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+                <div className='absolute top-2 right-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+                <div className='absolute bottom-2 left-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+                <div className='absolute bottom-2 right-2 w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700' />
+
+                {/* Status label */}
+                <div className='absolute top-6 right-6'>
+                  <div className='px-3 py-1 text-xs font-mono italic border border-zinc-700 bg-zinc-900/50 text-zinc-500'>
+                    Decommissioned {prototype.decommissionedYear}
+                  </div>
+                </div>
+
+                <div className='p-6 pt-12'>
+                  <div className='mb-3'>
+                    <div className='w-10 h-px bg-zinc-600 mb-3' />
+                    <h4 className='text-lg font-black text-zinc-400 mb-2'>
+                      {prototype.name}
+                    </h4>
+                  </div>
+
+                  <p className='text-zinc-600 mb-5 leading-relaxed text-sm'>
+                    {prototype.epitaph}
+                  </p>
+
+                  <div className='flex items-center gap-2 text-zinc-500 group-hover:text-white font-mono text-xs transition-colors duration-300'>
+                    <span>VIEW CARCASS</span>
+                    <span>→</span>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
