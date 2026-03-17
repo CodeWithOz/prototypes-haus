@@ -37,12 +37,6 @@ const prototypes: (Prototype | AbandonedPrototype)[] = [
     status: 'stable',
   },
   {
-    name: 'GeldTrail',
-    description: 'Expense tracking app. Scan receipts and view analytics.',
-    url: 'https://geldtrail.prototypes.haus',
-    status: 'alpha',
-  },
-  {
     name: 'Artenee',
     description:
       'Gratitude journal, with daily gratitude reminders based on journal entries.',
@@ -77,28 +71,20 @@ const prototypes: (Prototype | AbandonedPrototype)[] = [
     status: 'stable',
   },
   {
-    name: 'TubeMap',
-    description: '',
-    url: 'https://tubemap.prototypes.haus',
+    name: 'GeldTrail',
+    description: 'Expense tracking app. Scan receipts and view analytics.',
+    url: 'https://geldtrail.prototypes.haus',
     status: 'abandoned',
-    epitaph: 'Scope creep turned a weekend project into a six-month odyssey.',
-    decommissionedYear: 2023,
+    epitaph: 'Bad performance; picked wrong tech stack.',
+    decommissionedYear: 2026,
   },
   {
-    name: 'ReceiptSnap',
-    description: '',
-    url: 'https://receiptsnap.prototypes.haus',
+    name: 'Compass',
+    description: 'Momentum tracker for personal and professional goals.',
+    url: 'https://github.com/CodeWithOz/compass',
     status: 'abandoned',
-    epitaph: 'API costs exceeded the value prop.',
-    decommissionedYear: 2024,
-  },
-  {
-    name: 'MoodRing',
-    description: '',
-    url: 'https://moodring.prototypes.haus',
-    status: 'abandoned',
-    epitaph: "Turns out nobody wants to journal their feelings to a chatbot.",
-    decommissionedYear: 2023,
+    epitaph: 'Lack of clarity about what I wanted to build and what I wanted to use.',
+    decommissionedYear: 2026,
   },
 ];
 
@@ -631,7 +617,7 @@ export default function Home() {
                   </p>
 
                   <div className='flex items-center gap-2 text-zinc-500 group-hover:text-white font-mono text-xs transition-colors duration-300'>
-                    <span>EXPLORE BUILD</span>
+                    <span>VIEW CARCASS</span>
                     <span>→</span>
                   </div>
                 </div>
