@@ -83,7 +83,7 @@ const prototypes: (Prototype | AbandonedPrototype)[] = [
     description: 'Momentum tracker for personal and professional goals.',
     url: 'https://github.com/CodeWithOz/compass',
     status: 'abandoned',
-    epitaph: 'Lack of clarity about what I wanted to build and what I wanted to use.',
+    epitaph: 'Lack of clarity about what I wanted to build and what would be compellingly useful.',
     decommissionedYear: 2026,
   },
 ];
@@ -488,7 +488,7 @@ export default function Home() {
                 build, test, and refine them.
               </p>
               <p className='text-lg text-zinc-400'>
-                Each prototype represents an exploration in progress.
+                Each prototype represents an exploration.
                 Proofs-of-concepts, functional builds, and helpful software
                 sourced from my desire to learn and my personal experiences.
               </p>
@@ -634,7 +634,7 @@ export default function Home() {
         <footer className='mt-24 pt-12 border-t border-zinc-700'>
           <div className='flex flex-col sm:flex-row justify-between items-center gap-6'>
             <div className='text-zinc-500 text-center sm:text-left font-mono text-sm'>
-              <span className='text-orange-500'>{'///'}</span> Curated with
+              <span className='text-orange-500'>{'//'}</span> Curated with
               dedication by{' '}
               <a
                 href='https://www.linkedin.com/in/uchechukwu-ozoemena/'
