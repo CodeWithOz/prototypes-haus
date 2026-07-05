@@ -16,11 +16,11 @@ type AbandonedPrototype = Prototype & {
 
 const prototypes: (Prototype | AbandonedPrototype)[] = [
   {
-    name: 'Fluide',
+    name: 'DL World',
     description:
-      'Speak French more fluidly by practicing phrases for expressing your wants, needs, opinions, and more.',
-    url: 'https://fluide.prototypes.haus',
-    status: 'alpha',
+      'Explore deep learning concepts in a walkable city where a real neural network trains live.',
+    url: 'https://dlworld.prototypes.haus',
+    status: 'beta',
   },
   {
     name: 'Parle',
@@ -69,6 +69,15 @@ const prototypes: (Prototype | AbandonedPrototype)[] = [
       'Paste and speed read. Offline-capable and installable on mobile.',
     url: 'https://spreedr.vercel.app/',
     status: 'stable',
+  },
+  {
+    name: 'Fluide',
+    description:
+      'Speak French more fluidly by practicing phrases for expressing your wants, needs, opinions, and more.',
+    url: 'https://fluide.prototypes.haus',
+    status: 'abandoned',
+    epitaph: 'Too basic, core activity not useful enough.',
+    decommissionedYear: 2026,
   },
   {
     name: 'GeldTrail',
