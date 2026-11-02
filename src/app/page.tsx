@@ -1,4 +1,9 @@
-import { APP_NAME } from '@/constants/text';
+import {
+  APP_NAME,
+  AUTHOR_HANDLE,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from '@/constants/text';
 
 type PrototypeStatus = 'alpha' | 'beta' | 'stable' | 'abandoned';
 
@@ -644,14 +649,23 @@ export default function Home() {
           <div className='flex flex-col sm:flex-row justify-between items-center gap-6'>
             <div className='text-zinc-500 text-center sm:text-left font-mono text-sm'>
               <span className='text-orange-500'>{'//'}</span> Curated with
-              dedication by{' '}
+              dedication by {AUTHOR_HANDLE} —{' '}
               <a
-                href='https://www.linkedin.com/in/uchechukwu-ozoemena/'
+                href={LINKEDIN_URL}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-orange-500 hover:text-orange-400 underline transition-colors'
               >
-                CodeWithOz
+                LinkedIn
+              </a>
+              {' · '}
+              <a
+                href={GITHUB_URL}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-orange-500 hover:text-orange-400 underline transition-colors'
+              >
+                GitHub
               </a>
             </div>
             <div className='flex gap-6 text-zinc-500 hover:text-zinc-400'>

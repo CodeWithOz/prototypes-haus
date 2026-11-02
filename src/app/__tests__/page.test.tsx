@@ -1,6 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import Home from '../page';
+import {
+  AUTHOR_HANDLE,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from '@/constants/text';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -248,5 +253,35 @@ describe('Home page — regression: active prototypes still render correctly', (
   it('renders the page subtitle "HAUS"', () => {
     render(<Home />);
     expect(screen.getByText('HAUS')).toBeInTheDocument();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Tests — Footer attribution
+// ---------------------------------------------------------------------------
+
+describe('Home page — Footer attribution', () => {
+  it('renders the author handle as text, not as a link', () => {
+    render(<Home />);
+    expect(screen.getByText(new RegExp(AUTHOR_HANDLE))).toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', { name: AUTHOR_HANDLE }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('links LinkedIn to the profile URL in a new tab', () => {
+    render(<Home />);
+    const link = screen.getByRole('link', { name: 'LinkedIn' });
+    expect(link).toHaveAttribute('href', LINKEDIN_URL);
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('links GitHub to the profile URL in a new tab', () => {
+    render(<Home />);
+    const link = screen.getByRole('link', { name: 'GitHub' });
+    expect(link).toHaveAttribute('href', GITHUB_URL);
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 });
