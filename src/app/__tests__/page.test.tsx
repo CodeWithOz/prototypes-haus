@@ -34,7 +34,7 @@ function getGraveyardSection() {
 // ---------------------------------------------------------------------------
 
 const ACTIVE_PROTOTYPE_NAMES = [
-  'Fluide',
+  'DL World',
   'Parle',
   'Listen Better',
   'Artenee',
@@ -46,13 +46,19 @@ const ACTIVE_PROTOTYPE_NAMES = [
 
 const ABANDONED_PROTOTYPES = [
   {
+    name: 'Fluide',
+    epitaph: 'Too basic, core activity not useful enough.',
+    decommissionedYear: 2026,
+  },
+  {
     name: 'GeldTrail',
     epitaph: 'Bad performance; picked wrong tech stack.',
     decommissionedYear: 2026,
   },
   {
     name: 'Compass',
-    epitaph: 'Lack of clarity about what I wanted to build and what I wanted to use.',
+    epitaph:
+      'Lack of clarity about what I wanted to build and what would be compellingly useful.',
     decommissionedYear: 2026,
   },
 ] as const;
